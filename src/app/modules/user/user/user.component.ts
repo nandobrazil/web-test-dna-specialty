@@ -64,7 +64,7 @@ export class UserComponent implements OnInit {
   }
 
   handleEdit(idCustomer: number) {
-    this.router.navigate([`/customer/${idCustomer}`])
+    this.router.navigate([`/user/${idCustomer}`])
   }
 
   async handleDelete(user: IUser) {

@@ -25,7 +25,7 @@
         <tr>
             <td class="text-center">{{index + 1}}</td>
             <td>{{customer.corporateName}}</td>
-            <td>{{customer.cnpj | formatDocument}}</td>
+            <td class="text-center">{{customer.cnpj | formatDocument}}</td>
             <td class="td-action">
               <div class="flex justify-content-evenly">
                 <button pButton type="button" (click)="handleEdit(customer.id)"

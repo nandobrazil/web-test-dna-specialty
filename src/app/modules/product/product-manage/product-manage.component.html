@@ -1,1 +1,31 @@
-<p>product-manager works!</p>
+<div class="customer-manage-component">
+  <app-back-navigator [routerUrl]="'/customer'"></app-back-navigator>
+  <p-fieldset legend="Gerenciar Produto">
+    <form [formGroup]="formProduct">
+      <div class="grid">
+        <div class="col-12 md:col-8 input-group">
+          <label>Nome</label>
+          <input type="text" pInputText formControlName="name">
+          <form-validator-message [form]="formProduct" field="name"></form-validator-message>
+        </div>
+        <div class="col-12 md:col-4 input-group">
+          <label>Preço</label>
+          <p-inputNumber formControlName="price" mode="currency"
+            currency="BRL" locale="pt">
+          </p-inputNumber>
+          <form-validator-message [form]="formProduct" field="price"></form-validator-message>
+        </div>
+        <div class="col-12 flex justify-content-end">
+          <button pButton type="button" (click)="handleCancel()"
+                  icon="pi pi-times" label="Cancelar" class="p-button-danger p-button-sm"
+                  pTooltip="Excluir" tooltipPosition="top" style="margin-right: .5rem;"></button>
+          <button pButton type="button" label="Cancelar" (click)="handleSave()"
+                  [icon]="'pi ' + (idProduct ? 'pi-save' : 'pi-check')"
+                  [label]="idProduct ? 'Salvar' : 'Adicionar'"
+                  class="p-button-warning p-button-sm" [disabled]="!validateForm()"
+                  pTooltip="Excluir" tooltipPosition="top"></button>
+        </div>
+      </div>
+    </form>
+  </p-fieldset>
+</div>

@@ -5,6 +5,12 @@
   .th-action {
     width: 120px;
   }
+  .th-name {
+    width: calc(80% - 200px);
+  }
+  .th-price {
+    width: 20%;
+  }
   .td-action {
     button {
       width: 2rem !important;

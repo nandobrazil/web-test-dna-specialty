@@ -12,10 +12,10 @@
     <ng-template pTemplate="header">
         <tr>
             <th class="th-index">#</th>
-            <th pSortableColumn="name">
+            <th pSortableColumn="name" class="th-name">
               Nome <p-sortIcon field="name"></p-sortIcon>
             </th>
-            <th pSortableColumn="price">
+            <th pSortableColumn="price" class="th-price">
               Preço <p-sortIcon field="price"></p-sortIcon>
             </th>
             <th class="th-action">Ações</th>
@@ -25,7 +25,7 @@
         <tr>
             <td class="text-center">{{index + 1}}</td>
             <td>{{product.name}}</td>
-            <td>{{product.price | currency:'BRL'}}</td>
+            <td class="text-center">{{product.price | currency:'BRL'}}</td>
             <td class="td-action">
               <div class="flex justify-content-evenly">
                 <button pButton type="button" (click)="handleEdit(product.id)"

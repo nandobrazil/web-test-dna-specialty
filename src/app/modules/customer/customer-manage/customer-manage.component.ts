@@ -89,7 +89,7 @@ export class CustomerManageComponent implements OnInit {
     }
   }
 
-  validateTabela() {
+  validateForm() {
     return this.formCustomer && this.formCustomer.valid;
   }
 

@@ -211,11 +211,17 @@ ul {
 }
 
 .input-group {
+  display: flex;
+  flex-direction: column;
   label {
     font-weight: 600;
     font-size: .8rem;
   }
-  input, .p-inputnumber {
+  input {
     margin-top: .5rem;
+    width: 100%;
+  }
+  .p-inputnumber {
+    width: 100%;
   }
 }

@@ -21,7 +21,7 @@
           <button pButton type="button" label="Cancelar" (click)="handleSave()"
                   [icon]="'pi ' + (idCustomer ? 'pi-save' : 'pi-check')"
                   [label]="idCustomer ? 'Salvar' : 'Adicionar'"
-                  class="p-button-warning p-button-sm" [disabled]="!validateTabela()"
+                  class="p-button-warning p-button-sm" [disabled]="!validateForm()"
                   pTooltip="Excluir" tooltipPosition="top"></button>
         </div>
       </div>

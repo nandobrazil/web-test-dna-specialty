@@ -64,7 +64,7 @@ export class ProductComponent implements OnInit {
   }
 
   handleEdit(idCustomer: number) {
-    this.router.navigate([`/customer/${idCustomer}`])
+    this.router.navigate([`/product/${idCustomer}`])
   }
 
   async handleDelete(product: IProduct) {
