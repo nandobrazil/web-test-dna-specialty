@@ -74,6 +74,7 @@ export class CustomerComponent implements OnInit {
 
     if (result) {
       this.showMessage('Sucesso', 'success', `O cliente ${customer.corporateName} foi excluido com sucesso.`);
+      this.first = 0;
       this.loadCustomers();
     }
   }

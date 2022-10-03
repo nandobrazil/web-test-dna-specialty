@@ -8,8 +8,12 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { ButtonModule } from 'primeng/button';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ToastModule } from 'primeng/toast';
-import localePt from '@angular/common/locales/pt';
 import { PipesModule } from '../shared/pipes/pipes.module';
+import { FieldsetModule } from 'primeng/fieldset';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import localePt from '@angular/common/locales/pt';
 
 registerLocaleData(localePt);
 
@@ -24,7 +28,11 @@ registerLocaleData(localePt);
     ButtonModule,
     InputNumberModule,
     ToastModule,
-    PipesModule
+    PipesModule,
+    FieldsetModule,
+    InputTextModule,
+    InputMaskModule,
+    ProgressSpinnerModule
   ],
   exports: [
     TableModule,
@@ -35,7 +43,11 @@ registerLocaleData(localePt);
     ButtonModule,
     InputNumberModule,
     ToastModule,
-    PipesModule
+    PipesModule,
+    FieldsetModule,
+    InputTextModule,
+    InputMaskModule,
+    ProgressSpinnerModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' }

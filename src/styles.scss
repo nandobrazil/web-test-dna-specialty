@@ -145,6 +145,7 @@ ul {
       background: var(--container-color) !important;
     }
     & > td {
+      color: var(--text-color-table);
       border: 1px solid var(--container-border-color) !important;
     }
   }
@@ -192,4 +193,29 @@ ul {
 }
 .p-link:focus {
   box-shadow: 0 0 0.2rem var(--prim-color) !important;
+}
+
+.p-fieldset {
+  margin-top: -1rem;
+  border: 1px solid var(--container-border-color) !important;
+  background: var(--container-color) !important;
+    .p-fieldset-legend {
+      margin-left: 1rem !important;
+      padding: .8rem !important;
+      border: none !important;
+      background-color: transparent !important;
+      & > a, & > span {
+        color: var(--text-color-table);
+      }
+  }
+}
+
+.input-group {
+  label {
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  input, .p-inputnumber {
+    margin-top: .5rem;
+  }
 }

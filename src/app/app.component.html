@@ -8,5 +8,8 @@
   </div>
 </div>
 
+<div class="loading" *ngIf="loading">
+  <p-progressSpinner></p-progressSpinner>
+</div>
 <p-toast [ngStyle]="{'position':'relative', 'z-index':'99999999'}" styleClass="pre-wrap-toast" position="top-right"></p-toast>
 <p-confirmDialog icon="pi pi-exclamation-triangle" key="deleteConfirm"></p-confirmDialog>

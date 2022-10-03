@@ -7,6 +7,8 @@ import { ActionBarComponent } from './components/action-bar/action-bar.component
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CoreModule } from '../core/core.module';
 import { FormsModule } from '@angular/forms';
+import { BackNavigatorComponent } from './components/back-navigator/back-navigator.component';
+import { FormValidatorComponent } from './components/form-validator/form-validator.component';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,16 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     ActionBarComponent,
     SearchBarComponent,
+    BackNavigatorComponent,
+    FormValidatorComponent,
   ],
   exports: [
     MenuComponent,
     HeaderComponent,
     ActionBarComponent,
     SearchBarComponent,
+    BackNavigatorComponent,
+    FormValidatorComponent,
   ],
   imports: [
     CommonModule,

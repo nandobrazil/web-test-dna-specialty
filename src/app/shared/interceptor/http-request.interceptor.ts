@@ -9,17 +9,19 @@ import {
   HttpResponse,
 } from '@angular/common/http';
 import { of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, finalize, map } from 'rxjs/operators';
 import { MessageService } from 'primeng/api';
 import * as _ from 'lodash';
 
 import { Router } from '@angular/router';
+import { LoadingService } from '../services/core/loading.service';
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
 
   constructor(
     private messageService: MessageService,
+    private loadingService: LoadingService,
     private router: Router
   ) {
   }
@@ -32,6 +34,7 @@ intercept(
       new HttpHeaders({
         ... { 'Content-Type': 'application/json' }
       });
+    this.loadingService.setLoading(true);
     req = req.clone({ headers });
     return next.handle(req).pipe(
       map((event: HttpEvent<any>) => {
@@ -42,6 +45,9 @@ intercept(
           return cloneEvent;
         }
         return event;
+      }),
+      finalize(() => {
+        this.loadingService.setLoading(false);
       }),
       catchError((error: HttpErrorResponse) => {
         if ([422, 404, 400].includes(error.status)) {
@@ -75,6 +81,6 @@ intercept(
           }
         }));
       })
-    );
+    )
   }
 }

@@ -1,0 +1,19 @@
+.form-validator {
+  overflow: hidden;
+  color: #FFF;
+  background: #f44336;
+  padding: 4px 8px;
+  width: inherit;
+  width: fit-content;
+  margin-top: 2px;
+  border-radius: 5px;
+  font-size: 0.6rem;
+  text-overflow: ellipsis;
+  .input-message-error {
+      color: white;
+      white-space: nowrap;
+  }
+  &.no-show {
+      background: transparent !important;
+  }
+}

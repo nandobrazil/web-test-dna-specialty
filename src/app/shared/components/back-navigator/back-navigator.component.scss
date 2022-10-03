@@ -1,0 +1,28 @@
+.back-navigator-component {
+  max-width: 5%;
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  color: var(--prim-color);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  i {
+    margin-right: 0.4rem;
+    padding: .3rem;
+    background-color: var(--prim-color);
+    color: var(--container-color);
+    border-radius: 50%;
+    font-size: .6rem;
+    font-weight: bold;
+    transition: .3s all;
+  }
+  &:hover {
+    margin-left: -0.3rem;
+    span {
+      text-decoration: underline;
+    }
+  }
+  margin-bottom: 1rem;
+}

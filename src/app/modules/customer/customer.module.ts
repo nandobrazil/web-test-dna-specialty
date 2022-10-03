@@ -4,10 +4,9 @@ import { CommonModule } from '@angular/common';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerManageComponent } from './customer-manage/customer-manage.component';
-import { TableModule } from 'primeng/table';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModule } from 'src/app/core/core.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CoreModule,
     CustomerRoutingModule,
     FormsModule,
-    SharedModule,
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class CustomerModule { }

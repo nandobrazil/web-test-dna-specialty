@@ -15,6 +15,8 @@
     --text-color: #7c7c7c;
     --title-color: #fefefe;
     --icon-color: #ccccd1;
+    --text-color-table: #E3E3E3;
+    --loading-background: rgba(255, 255, 255, 0.8);
     --table-stripped: #2a2a2a;
     --text-color-light: #6c757d;
     --prim-color: #384a8d;
@@ -64,9 +66,11 @@ body.light-theme{
     --menu-color: #333;
     --icon-color: #ccccd1;
     --table-stripped: #F5F5F5;
+    --text-color-table: #333;
     --container-color: #FFF;
     --prim-color: #f2914e;
     --primDark-color: #af6b3b;
     --container-border-color: #ebecf0;
+    --loading-background: rgba(0, 0, 0, 0.6);
     --separator-color: #f0f0f3;
 }

@@ -1,6 +1,6 @@
 <div class="customer-component">
   <app-search-bar
-    [placeholder]="'Pesquise o cliente pelo CNPJ ou nome'"
+    [placeholder]="'Pesquise o cliente pelo nome ou CNPJ (somente números)'"
     [routerlinkAddButton]="'/customer/new'"
     (callFilter)="receiveFilter($event)">
   </app-search-bar>

@@ -1,1 +1,30 @@
-<p>customer-manage works!</p>
+<div class="customer-manage-component">
+  <app-back-navigator [routerUrl]="'/customer'"></app-back-navigator>
+  <p-fieldset legend="Gerenciar Cliente">
+    <form [formGroup]="formCustomer">
+      <div class="grid">
+        <div class="col-12 md:col-8 input-group">
+          <label>Razão Social</label>
+          <input type="text" pInputText formControlName="corporateName">
+          <form-validator-message [form]="formCustomer" field="corporateName"></form-validator-message>
+        </div>
+        <div class="col-12 md:col-4 input-group">
+          <label>CNPJ</label>
+          <p-inputMask formControlName="cnpj" mask="99.999.999/9999-99" slotChar=" "
+            [unmask]="true" characterPattern="[0-9]"></p-inputMask>
+          <form-validator-message [form]="formCustomer" field="cnpj"></form-validator-message>
+        </div>
+        <div class="col-12 flex justify-content-end">
+          <button pButton type="button" (click)="handleCancel()"
+                  icon="pi pi-times" label="Cancelar" class="p-button-danger p-button-sm"
+                  pTooltip="Excluir" tooltipPosition="top" style="margin-right: .5rem;"></button>
+          <button pButton type="button" label="Cancelar" (click)="handleSave()"
+                  [icon]="'pi ' + (idCustomer ? 'pi-save' : 'pi-check')"
+                  [label]="idCustomer ? 'Salvar' : 'Adicionar'"
+                  class="p-button-warning p-button-sm" [disabled]="!validateTabela()"
+                  pTooltip="Excluir" tooltipPosition="top"></button>
+        </div>
+      </div>
+    </form>
+  </p-fieldset>
+</div>

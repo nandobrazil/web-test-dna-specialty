@@ -73,8 +73,8 @@ export abstract class BaseService<T> {
       return this.http.post(url ? url : this.urlBase, model).toPromise() as Promise<IHttpResult<T>>;
   }
 
-  public put(model: T, id: number): Promise<IHttpResult<T>> {
-      return this.http.put(`${this.urlBase}/${id}`, model).toPromise() as Promise<IHttpResult<T>>;
+  public put(model: T): Promise<IHttpResult<T>> {
+      return this.http.put(`${this.urlBase}/${(model as any).id}`, model).toPromise() as Promise<IHttpResult<T>>;
   }
 
   public deleteFlush(id: number): Promise<IHttpResult<T>> {

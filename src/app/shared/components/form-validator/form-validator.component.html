@@ -1,0 +1,5 @@
+<div class="form-validator" [class.no-show]="!isTouched() || (isTouched() && !isInvalid())">
+  <span class="input-message-error" [pTooltip]="!(!isTouched() || (isTouched() && !isInvalid())) ? message() : ''" *ngIf="isFormInvalid()" >
+    {{ message() }}
+  </span>
+</div>
