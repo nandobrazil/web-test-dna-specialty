@@ -1,0 +1,9 @@
+<div class="search-bar-component flex">
+  <div class="input-icon-group">
+    <input type="search" pInputText [placeholder]="placeholder" [(ngModel)]="filter"
+      (ngModelChange)="debounceSearch.next(null)" />
+    <i class="fas fa-search input-icon"></i>
+  </div>
+  <i class="fas fa-plus icon-create" tooltipPosition="top" pTooltip="Adicionar" (click)="navigateTo()"></i>
+</div>
+

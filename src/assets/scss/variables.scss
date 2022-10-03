@@ -1,0 +1,72 @@
+/*==================== GOOGLE FONTS ====================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200&display=swap');
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+    --header-height: 3rem;
+    /*========== Colors ==========*/
+    /* Change favorite color */
+
+    /*========== Font and typography ==========*/
+    --body-font: 'Nunito Sans', sans-serif;
+    --body-color: #161616;
+    --menu-color: #fefefe;
+    --text-color: #7c7c7c;
+    --title-color: #fefefe;
+    --icon-color: #ccccd1;
+    --table-stripped: #2a2a2a;
+    --text-color-light: #6c757d;
+    --prim-color: #384a8d;
+    --primDark-color: #283564;
+    --second-color: #384a8d;
+    --separator-color: #3b3b3b;
+
+    /*========== Containers ==========*/
+    --container-color: #202020;
+    --container-border-color: #1d1d1d;
+    --container-border-radius: 1.5rem;
+
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+    --font-extra-bold: 900;
+
+    /*========== Margenes Bottom ==========*/
+    /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /*========== Inputs Styles ==========*/
+    --box-shadow: #ec1a9197;
+}
+
+/*========== Variables Dark theme ==========*/
+body.light-theme{
+    --title-color: #000;
+    --body-color: #f7fafc;
+    --menu-color: #333;
+    --icon-color: #ccccd1;
+    --table-stripped: #F5F5F5;
+    --container-color: #FFF;
+    --prim-color: #f2914e;
+    --primDark-color: #af6b3b;
+    --container-border-color: #ebecf0;
+    --separator-color: #f0f0f3;
+}

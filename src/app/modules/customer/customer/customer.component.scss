@@ -1,0 +1,16 @@
+::ng-deep .customer-component {
+  .th-index {
+    width: 80px;
+  }
+  .th-cnpj {
+    width: 20%;
+  }
+  .th-action {
+    width: 120px;
+  }
+  .td-action {
+    button {
+      width: 2rem !important;
+    }
+  }
+}

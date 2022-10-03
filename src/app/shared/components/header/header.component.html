@@ -1,0 +1,32 @@
+<div class="header flex">
+  <div class="left align-center pulse-grow-on-hover">
+    <img src="./../../../../assets/img/logo-dna.webp" alt="" class="logo">
+  </div>
+  <div class="middle" *ngIf="!isLogged"></div>
+  <div class="middle flex" *ngIf="isLogged">
+    <app-menu></app-menu>
+  </div>
+  <div class="right flex">
+    <div class="icon-toggle-theme">
+      <i class="fa-solid" [ngClass]="darkTheme ? 'fa-sun' : 'fa-moon'" (click)="saveAndChangeTheme()"></i>
+    </div>
+    <div class="user-detail" *ngIf="isLogged" (click)="op.toggle($event)">
+      <div class="user-image">
+        <img src="./../../../../assets/img/foto-perfil.png" alt="image-profile">
+      </div>
+      <p-overlayPanel #op>
+        <ng-template pTemplate>
+          <div class="profile-overlay">
+              <div class="info">
+                <span>Username</span>
+                <span>Administrador</span>
+              </div>
+              <div class="icon-logout">
+                <i class="pi pi-sign-out icon-logout" pTooltip="Deslogar" tooltipPosition="bottom" (click)="handleSignout()"></i>
+              </div>
+          </div>
+        </ng-template>
+    </p-overlayPanel>
+    </div>
+  </div>
+</div>

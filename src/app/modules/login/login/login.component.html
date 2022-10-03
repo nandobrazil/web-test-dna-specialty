@@ -1,0 +1,80 @@
+<div class="login">
+  <div class="login-container" *ngIf="hasLogin; else registration" >
+    <div class="form-container">
+      <div class="head">
+        <p>ENTRAR</p>
+        <div class="icon">
+          <h1>Entrar na minha conta</h1>
+          <i class="fa-solid fa-circle dot primary-color"></i>
+        </div>
+        <span class="flex"f>Ainda não é um membro? <p (click)="hasLogin=false" class="primary-color link">Inscrever-se</p></span>
+      </div>
+      <div class="body">
+        <form [formGroup]="formSignin" class="form-login">
+          <div class="grid">
+            <div class="col-12">
+              <div class="input-content">
+                <label for="login" class="input-label">Usuário</label>
+                <input type="text" pInputText name="login" formControlName="login" class="input">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="input-content">
+                <label for="password" class="input-label">Senha</label>
+                <input type="password" pInputText name="password" (change)="displayViewPassword()" formControlName="password" class="input" id="input-password">
+              </div>
+            </div>
+            <div class="col-12 flex justify-content-end" style="padding: 0 .5rem">
+              <p-button label="Entrar" styleClass="p-button-lg" (click)="submitSignin()"></p-button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <ng-template #registration>
+    <div class="form-container">
+      <div class="head">
+        <p>INSCREVER-SE</p>
+        <div class="icon">
+          <h1>Criar nova conta</h1>
+          <i class="fa-solid fa-circle dot primary-color"></i>
+        </div>
+        <span class="flex"f>Já é um membro? <p (click)="hasLogin=true" class="primary-color link">Entrar</p></span>
+      </div>
+      <div class="body">
+        <form [formGroup]="formSignup" class="form-login">
+          <div class="grid">
+            <div class="col-6">
+              <div class="input-content">
+                <label for="name" class="input-label">Nome</label>
+                <input type="text" pInputText name="name" formControlName="name" class="input">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="input-content">
+                <label for="login" class="input-label">Usuário</label>
+                <input type="text" pInputText name="login" formControlName="login" class="input">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="input-content">
+                <label for="cpf" class="input-label">CPF</label>
+                <input type="text" pInputText name="cpf" formControlName="cpf" class="input">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="input-content">
+                <label for="password" class="input-label">Senha</label>
+                <input type="password" pInputText name="password" (change)="displayViewPassword()" formControlName="password" class="input" id="input-password">
+              </div>
+            </div>
+            <div class="col-12 flex justify-content-end" style="padding: 0 .5rem">
+              <p-button label="Inscrever-se" styleClass="p-button-lg" (click)="submitSignup()"></p-button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ng-template>
+</div>

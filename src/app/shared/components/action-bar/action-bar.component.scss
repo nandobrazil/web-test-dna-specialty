@@ -1,0 +1,18 @@
+::ng-deep .layout-actionbar {
+  flex: 1;
+  .p-breadcrumb {
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid var(--container-border-color) !important;
+    border-radius: 0 !important;
+    .p-menuitem-text {
+      padding: 0 1.5rem;
+      font-size: .8rem;
+      color: var(--title-color);
+      border-right: 1px solid rgba(176, 186, 196, 0.4);
+    }
+    .p-breadcrumb-chevron {
+      display: none;
+    }
+  }
+}

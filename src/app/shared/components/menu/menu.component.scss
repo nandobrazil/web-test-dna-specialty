@@ -1,0 +1,26 @@
+::ng-deep .menu {
+  .p-menubar {
+    border: none !important;
+    background: none !important;
+    .p-menubar-root-list {
+      width: auto;
+      & > .p-menuitem > .p-menuitem-link {
+        .p-menuitem-icon,
+        .p-menuitem-text {
+          color: var(--menu-color) !important;
+          transition: .3s all;
+        }
+        &:focus {
+          box-shadow: none !important;
+        }
+        &:not(.p-disabled):hover {
+          background: none !important;
+          .p-menuitem-icon,
+          .p-menuitem-text {
+            color: var(--prim-color) !important;
+        }
+        }
+      }
+    }
+  }
+}

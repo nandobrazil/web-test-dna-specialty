@@ -1,0 +1,93 @@
+.header {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1.25rem 0 0.5rem 0;
+  transition: .3s all;
+  border-bottom: 1px solid var(--container-border-color);
+  .left {
+    width: 250px;
+    cursor: pointer;
+    .logo {
+      width: 13rem;
+      margin-top: -0.5rem;
+    }
+  }
+  .middle {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    .icon-container {
+      width: 3.5rem;
+    }
+    .input-group {
+      margin-left: .5rem;
+      width: calc(100% - 4rem);
+      .p-input-icon-left {
+        width: 100%;
+        .p-inputtext {
+          padding: 1rem .5rem;
+          font-size: .8rem;
+          text-indent: 2rem;
+          border-radius: 2rem;
+        }
+      }
+    }
+  }
+  .right {
+    padding: 0 1rem;
+    min-width: 130px;
+    justify-content: right;
+    width: auto;
+    .icon-toggle-theme i {
+      margin: 1.3rem 1rem 0 0;
+      color: var(--title-color);
+      transition: .3s all;
+      &:hover {
+        color: var(--prim-color);
+        cursor: pointer;
+      }
+    }
+    .user-detail {
+      background: rgb(197,55,161);
+      background: linear-gradient(150deg, rgb(181,110,68) 0%, rgba(120,90,195,1) 50%, rgb(57,75,141) 100%);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      cursor: pointer;
+      .user-image img {
+        width: 40px;
+        height: 40px;
+        margin: 2px 0 0 0;
+        transition: .3s all;
+        border: 2px solid var(--container-color);
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .p-overlaypanel .p-overlaypanel-content {
+    .profile-overlay {
+      .info {
+        display: flex;
+        flex-direction: column;
+        span:nth-of-type(2) {
+          font-size: .8rem;
+        }
+      }
+      .icon-logout {
+        width: 100%;
+        margin-top: .5rem;
+        display: flex;
+        justify-content: flex-end;
+        i {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

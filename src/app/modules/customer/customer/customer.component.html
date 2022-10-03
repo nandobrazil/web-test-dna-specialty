@@ -1,0 +1,54 @@
+<div class="customer-component">
+  <app-search-bar
+    [placeholder]="'Pesquise o cliente pelo CNPJ ou nome'"
+    [routerlinkAddButton]="'/customer/new'"
+    (callFilter)="receiveFilter($event)">
+  </app-search-bar>
+
+  <p-table [value]="customers" [paginator]="true"
+    [lazy]="true" [totalRecords]="pagination.totalRecords"
+    [rows]="pagination.pageSize" [(first)]="first" [responsive]="true"
+    (onLazyLoad)="loadCustomers($event)" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th class="th-index">#</th>
+            <th pSortableColumn="corporateName">
+              Razão Social <p-sortIcon field="corporateName"></p-sortIcon>
+            </th>
+            <th pSortableColumn="cnpj" class="th-cnpj">
+              CNPJ <p-sortIcon field="cnpj"></p-sortIcon>
+            </th>
+            <th class="th-action">Ações</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-index="rowIndex" let-customer>
+        <tr>
+            <td class="text-center">{{index + 1}}</td>
+            <td>{{customer.corporateName}}</td>
+            <td>{{formatCNPJ(customer.cnpj)}}</td>
+            <td class="td-action">
+              <div class="flex justify-content-evenly">
+                <button pButton type="button" (click)="handleEdit(customer.id)"
+                  icon="pi pi-pencil" class="p-button-warning p-button-sm"
+                  pTooltip="Editar" tooltipPosition="top"></button>
+                <button pButton type="button" (click)="handleDelete(customer)"
+                  icon="pi pi-trash" class="p-button-danger p-button-sm"
+                  pTooltip="Excluir" tooltipPosition="top"></button>
+              </div>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="summary-container">
+        <div class="totalpages-container">
+          Total de {{ pagination.totalRecords || 0 }} registros
+        </div>
+        <div class="pagesize-container">
+          <p-inputNumber [min]="1" class="input-pagesize" [showButtons]="false" (onBlur)="loadCustomers($event)"
+            [(ngModel)]="pagination.pageSize"></p-inputNumber>
+          <span>Resultados por página</span>
+        </div>
+      </div>
+    </ng-template>
+  </p-table>
+</div>

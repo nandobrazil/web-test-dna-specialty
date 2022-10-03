@@ -1,0 +1,41 @@
+.search-bar-component {
+  padding: .6rem;
+  height: 60px;
+  position: relative;
+  width: 100%;
+  background-color: var(--prim-color);
+  .input-icon-group {
+    width: 50%;
+    position: relative;
+    input {
+      text-indent: 2rem;
+      padding: .5rem !important;
+    }
+    .input-icon {
+      position: absolute;
+      left: .8rem;
+      top: .8rem;
+    }
+  }
+  .icon-create {
+    position: absolute;
+    right: .7rem;
+    top: .7rem;
+    padding: .5rem;
+    background-color: var(--container-color);
+    border-radius: 6px;
+    color: var(--prim-color);
+    font-size: 1.4rem;
+    cursor: pointer;
+    &:hover {
+      border-color: var(--prim-color);
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .search-bar-component .input-icon-group {
+    width: calc(100% - 3rem);
+  }
+}
