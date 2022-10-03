@@ -8,7 +8,7 @@
   </div>
   <div class="right flex">
     <div class="icon-toggle-theme">
-      <i class="fa-solid" [ngClass]="darkTheme ? 'fa-sun' : 'fa-moon'" (click)="saveAndChangeTheme()"></i>
+      <i class="fa-solid" [ngClass]="lightTheme ? 'fa-moon' : 'fa-sun'" (click)="saveAndChangeTheme()"></i>
     </div>
     <div class="user-detail" *ngIf="isLogged" (click)="op.toggle($event)">
       <div class="user-image">

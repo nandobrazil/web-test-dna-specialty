@@ -9,6 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ToastModule } from 'primeng/toast';
 import localePt from '@angular/common/locales/pt';
+import { PipesModule } from '../shared/pipes/pipes.module';
 
 registerLocaleData(localePt);
 
@@ -22,7 +23,8 @@ registerLocaleData(localePt);
     BreadcrumbModule,
     ButtonModule,
     InputNumberModule,
-    ToastModule
+    ToastModule,
+    PipesModule
   ],
   exports: [
     TableModule,
@@ -32,7 +34,8 @@ registerLocaleData(localePt);
     BreadcrumbModule,
     ButtonModule,
     InputNumberModule,
-    ToastModule
+    ToastModule,
+    PipesModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' }

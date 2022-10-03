@@ -2,29 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { IPagination } from 'src/app/shared/interfaces/core/IPagination';
-import { ICustomer } from 'src/app/shared/interfaces/ICustomer';
+import { IUser } from 'src/app/shared/interfaces/IUser';
 import { BreadcrumbService } from 'src/app/shared/services/core/breadcrumb.service';
-import { CustomerService } from 'src/app/shared/services/customer.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
 })
-export class CustomerComponent implements OnInit {
+export class UserComponent implements OnInit {
 
-  customers: ICustomer[] = [];
+  users: IUser[] = [];
   pagination: IPagination;
   first = 0;
   filter = '';
   constructor(
     private breadcrumbService: BreadcrumbService,
-    private customerService: CustomerService,
+    private userService: UserService,
     private messageService: MessageService,
     private router: Router
   ) {
     this.breadcrumbService.setItems([
-      { label: 'Clientes', routerLink: '/customer' }
+      { label: 'Usuários', routerLink: '/user' }
     ]);
     this.pagination = {
       pageNumber: 1,
@@ -37,7 +37,7 @@ export class CustomerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async loadCustomers(event?: any) {
+  async loadUsers(event?: any) {
     let sort;
     if (event) {
       this.pagination.pageNumber = event.first > 0 ? (event.first / this.pagination.pageSize) + 1 : 1;
@@ -46,35 +46,35 @@ export class CustomerComponent implements OnInit {
         sort = `${event.sortField},${event.sortOrder === 1 ? 'asc' : 'desc'}`;
       }
     }
-    const { success, data, pagination } = await this.customerService.GetAllPaginated({
+    const { success, data, pagination } = await this.userService.GetAllPaginated({
       page: this.pagination.pageNumber,
       pageSize: this.pagination.pageSize,
       order: sort,
       search: { filter: this.filter }
     });
     if (success) {
-      this.customers = data;
+      this.users = data;
       this.pagination = pagination;
     }
   }
 
   receiveFilter(filter: string) {
     this.filter = filter;
-    this.loadCustomers();
+    this.loadUsers();
   }
 
   handleEdit(idCustomer: number) {
     this.router.navigate([`/customer/${idCustomer}`])
   }
 
-  async handleDelete(customer: ICustomer) {
-    const result = await this.customerService.delete(customer, {
-      message: `Deseja realmente excluir o cliente ${customer.corporateName}?`,
+  async handleDelete(user: IUser) {
+    const result = await this.userService.delete(user, {
+      message: `Deseja realmente excluir o usuário ${user.name}?`,
     });
 
     if (result) {
-      this.showMessage('Sucesso', 'success', `O cliente ${customer.corporateName} foi excluido com sucesso.`);
-      this.loadCustomers();
+      this.showMessage('Sucesso', 'success', `O usuário ${user.name} foi excluido com sucesso.`);
+      this.loadUsers();
     }
   }
 

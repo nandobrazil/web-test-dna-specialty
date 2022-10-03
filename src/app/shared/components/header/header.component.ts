@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ConfirmationService } from 'primeng/api';
 import { StorageKeys } from '../../constants/storage-key';
 import { AuthService } from '../../services/core/auth.service';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,8 +13,9 @@ export class HeaderComponent implements OnInit {
   inputSearch = '';
   toggleUser = false;
 
-  darkTheme = localStorage.getItem(StorageKeys.DARK_THEME) === 'dark-theme';
+  lightTheme = localStorage.getItem(StorageKeys.LIGHT_THEME_KEY) === 'light-theme';
   constructor(
+    private confirmationService: ConfirmationService,
     private authService: AuthService
   ) { }
 
@@ -23,15 +24,15 @@ export class HeaderComponent implements OnInit {
   }
 
   saveAndChangeTheme() {
-    this.darkTheme = !this.darkTheme;
-    localStorage.setItem(StorageKeys.DARK_THEME, this.darkTheme ? 'dark-theme' : '');
+    this.lightTheme = !this.lightTheme;
+    localStorage.setItem(StorageKeys.LIGHT_THEME_KEY, this.lightTheme ? 'light-theme' : '');
     this.setLightTheme();
   }
 
   setLightTheme() {
-    const darkTheme = localStorage.getItem(StorageKeys.DARK_THEME);
+    const lightTheme = localStorage.getItem(StorageKeys.LIGHT_THEME_KEY);
     const body = document.getElementsByTagName('body')[0];
-    darkTheme?.trim() ? body.classList.add(darkTheme || '') : body.classList.remove('dark-theme');
+    lightTheme?.trim() ? body.classList.add(lightTheme || '') : body.classList.remove('light-theme');
   }
 
   handleSignout() {
