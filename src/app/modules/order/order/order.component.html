@@ -1,1 +1,85 @@
-<p>order works!</p>
+<div class="order-component">
+  <app-search-bar
+    [placeholder]="'Pesquise o cliente pelo CNPJ ou nome'"
+    [routerlinkAddButton]="'/customer/new'"
+    (callFilter)="receiveFilter($event)">
+  </app-search-bar>
+
+  <p-table [value]="orders" [paginator]="true"
+    [lazy]="true" [totalRecords]="pagination.totalRecords"
+    [rows]="pagination.pageSize" [(first)]="first" [responsive]="true"
+    (onLazyLoad)="loadOrders($event)" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th class="th-index">#</th>
+            <th pSortableColumn="id">
+              Nr. Venda <p-sortIcon field="id"></p-sortIcon>
+            </th>
+            <th pSortableColumn="product.name" class="th-cnpj">
+              Produto <p-sortIcon field="product.name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="quantity">
+              Valor <p-sortIcon field="quantity"></p-sortIcon>
+            </th>
+            <th pSortableColumn="quantity">
+              Quantidade <p-sortIcon field="quantity"></p-sortIcon>
+            </th>
+            <th pSortableColumn="quantity">
+              Valor Total <p-sortIcon field="quantity"></p-sortIcon>
+            </th>
+            <th pSortableColumn="customer.name">
+              Cliente <p-sortIcon field="user.name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="user.name">
+              Usuário Respons. <p-sortIcon field="user.name"></p-sortIcon>
+            </th>
+            <th class="th-action">Ações</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-index="rowIndex" let-order>
+        <tr>
+            <td class="text-center">{{index + 1}}</td>
+            <td>{{order.id}}</td>
+            <td>{{order.product.name}}</td>
+            <td>{{order.product.price | currency: 'pt'}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.amount | currency: 'pt'}}</td>
+            <td>
+              <div class="flex flex-column">
+                <span>{{order.customer.name}}</span>
+                <span>{{order.customer.cnpj | formatDocument}}</span>
+              </div>
+            </td>
+            <td>
+              <div class="flex flex-column">
+                <span>{{order.user.name}}</span>
+                <span>{{order.user.cpf | formatDocument}}</span>
+              </div>
+            </td>
+            <td>{{order.corporateName}}</td>
+            <td class="td-action">
+              <div class="flex justify-content-evenly">
+                <button pButton type="button" (click)="handleEdit(order.id)"
+                  icon="pi pi-pencil" class="p-button-warning p-button-sm"
+                  pTooltip="Editar" tooltipPosition="top"></button>
+                <button pButton type="button" (click)="handleDelete(order)"
+                  icon="pi pi-trash" class="p-button-danger p-button-sm"
+                  pTooltip="Excluir" tooltipPosition="top"></button>
+              </div>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="summary-container">
+        <div class="totalpages-container">
+          Total de {{ pagination.totalRecords || 0 }} registros
+        </div>
+        <div class="pagesize-container">
+          <p-inputNumber [min]="1" class="input-pagesize" [showButtons]="false" (onBlur)="loadOrders($event)"
+            [(ngModel)]="pagination.pageSize"></p-inputNumber>
+          <span>Resultados por página</span>
+        </div>
+      </div>
+    </ng-template>
+  </p-table>
+</div>

@@ -28,6 +28,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule)
   },
   {
+    path: 'order',
+    canActivate: [ AuthGuard ],
+    loadChildren: () => import('./modules/order/order.module').then(m => m.OrderModule)
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
