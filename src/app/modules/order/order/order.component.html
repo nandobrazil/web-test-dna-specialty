@@ -13,7 +13,7 @@
         <tr>
             <th class="th-index">#</th>
             <th pSortableColumn="id">
-              Nr. Venda <p-sortIcon field="id"></p-sortIcon>
+              Nr. <p-sortIcon field="id"></p-sortIcon>
             </th>
             <th pSortableColumn="product.name" class="th-cnpj">
               Produto <p-sortIcon field="product.name"></p-sortIcon>
@@ -25,13 +25,13 @@
               Quantidade <p-sortIcon field="quantity"></p-sortIcon>
             </th>
             <th pSortableColumn="quantity">
-              Valor Total <p-sortIcon field="quantity"></p-sortIcon>
+              R$ Total <p-sortIcon field="quantity"></p-sortIcon>
             </th>
             <th pSortableColumn="customer.name">
               Cliente <p-sortIcon field="user.name"></p-sortIcon>
             </th>
             <th pSortableColumn="user.name">
-              Usuário Respons. <p-sortIcon field="user.name"></p-sortIcon>
+              Responsável <p-sortIcon field="user.name"></p-sortIcon>
             </th>
             <th class="th-action">Ações</th>
         </tr>
@@ -39,14 +39,14 @@
     <ng-template pTemplate="body" let-index="rowIndex" let-order>
         <tr>
             <td class="text-center">{{index + 1}}</td>
-            <td>{{order.id}}</td>
+            <td class="text-center">{{order.id}}</td>
             <td>{{order.product.name}}</td>
-            <td>{{order.product.price | currency: 'pt'}}</td>
-            <td>{{order.quantity}}</td>
-            <td>{{order.amount | currency: 'pt'}}</td>
+            <td class="text-center">{{order.product.price | currency: 'BRL'}}</td>
+            <td class="text-center">{{order.quantity}}</td>
+            <td class="text-center">{{order.amount | currency: 'BRL'}}</td>
             <td>
               <div class="flex flex-column">
-                <span>{{order.customer.name}}</span>
+                <span>{{order.customer.corporateName}}</span>
                 <span>{{order.customer.cnpj | formatDocument}}</span>
               </div>
             </td>
@@ -56,7 +56,6 @@
                 <span>{{order.user.cpf | formatDocument}}</span>
               </div>
             </td>
-            <td>{{order.corporateName}}</td>
             <td class="td-action">
               <div class="flex justify-content-evenly">
                 <button pButton type="button" (click)="handleEdit(order.id)"

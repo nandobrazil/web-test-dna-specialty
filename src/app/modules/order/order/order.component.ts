@@ -55,6 +55,7 @@ export class OrderComponent implements OnInit {
     });
     if (success) {
       this.orders = data;
+      this.orders.forEach(order => order.amount = order.amount / 100);
       this.pagination = pagination;
     }
   }
