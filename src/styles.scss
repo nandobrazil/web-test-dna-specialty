@@ -150,6 +150,11 @@ ul {
     }
   }
 
+  .p-sortable-column .p-sortable-column-icon {
+    font-size: .6rem;
+    margin-left: 0 !important;
+  }
+
   .p-datatable-footer {
     background: var(--container-color) !important;
     color: var(--title-color) !important;
@@ -170,8 +175,8 @@ ul {
         margin: 0.2rem;
         text-align: center;
         .p-inputtext {
-          width: 80px !important;
-          padding: .5rem !important;
+          width: 50px !important;
+          padding: .1rem !important;
         }
       }
     }

@@ -19,13 +19,7 @@
               Produto <p-sortIcon field="product.name"></p-sortIcon>
             </th>
             <th pSortableColumn="quantity">
-              Valor <p-sortIcon field="quantity"></p-sortIcon>
-            </th>
-            <th pSortableColumn="quantity">
-              Quantidade <p-sortIcon field="quantity"></p-sortIcon>
-            </th>
-            <th pSortableColumn="quantity">
-              R$ Total <p-sortIcon field="quantity"></p-sortIcon>
+              Valor Total <p-sortIcon field="quantity"></p-sortIcon>
             </th>
             <th pSortableColumn="customer.name">
               Cliente <p-sortIcon field="user.name"></p-sortIcon>
@@ -40,10 +34,18 @@
         <tr>
             <td class="text-center">{{index + 1}}</td>
             <td class="text-center">{{order.id}}</td>
-            <td>{{order.product.name}}</td>
-            <td class="text-center">{{order.product.price | currency: 'BRL'}}</td>
-            <td class="text-center">{{order.quantity}}</td>
-            <td class="text-center">{{order.amount | currency: 'BRL'}}</td>
+            <td>
+              <div class="flex flex-column">
+                <span><strong>Produto: </strong>{{order.product.name}}</span>
+                <span><strong>Unidade: </strong>{{order.product.price | currency: 'BRL'}}</span>
+              </div>
+            </td>
+            <td>
+              <div class="flex flex-column">
+                <span><strong>Quantidade: </strong>{{order.quantity}}</span>
+                <span><strong>Total: </strong>{{order.amount | currency: 'BRL'}}</span>
+              </div>
+            </td>
             <td>
               <div class="flex flex-column">
                 <span>{{order.customer.corporateName}}</span>
