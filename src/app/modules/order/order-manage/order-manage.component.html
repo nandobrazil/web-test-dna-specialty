@@ -1,1 +1,62 @@
-<p>order-manage works!</p>
+<div class="order-manage-component">
+  <app-back-navigator [routerUrl]="'/order'"></app-back-navigator>
+  <p-fieldset legend="Gerenciar Venda">
+    <form [formGroup]="formOrder">
+      <div class="grid">
+        <div class="col-12 md:col-7 input-group">
+          <label>Produto</label>
+          <p-dropdown [options]="productOptions" formControlName="product"
+            optionLabel="label" [filter]="true" filterBy="label" [showClear]="true"
+            placeholder="Selecione"
+            emptyFilterMessage="Nenhum resultado encontrado"
+            emptyMessage="Nenhum registro foi encontrado."
+            (onChange)="setTotalPrice()">
+          </p-dropdown>
+          <form-validator-message [form]="formOrder" field="product"></form-validator-message>
+        </div>
+        <div class="col-12 md:col-2 input-group">
+          <label>Quantidade</label>
+          <p-inputNumber formControlName="amount" mode="decimal"
+            [showButtons]="true" inputId="minmax-buttons" [min]="0"
+            (onBlur)="setTotalPrice()">
+          </p-inputNumber>
+          <form-validator-message [form]="formOrder" field="amount"></form-validator-message>
+        </div>
+        <div class="col-12 md:col-3 input-group">
+          <label>Preço Total</label>
+          <input type="text" pInputText disabled [value]="totalPrice | currency: 'BRL'">
+        </div>
+        <div class="col-12 md:col-6 input-group">
+          <label>Cliente</label>
+          <p-dropdown [options]="customerOptions" formControlName="idCustomer"
+            optionLabel="label" [filter]="true" filterBy="label" [showClear]="true"
+            placeholder="Selecione" optionValue="value"
+            emptyFilterMessage="Nenhum resultado encontrado"
+            emptyMessage="Nenhum registro foi encontrado.">
+          </p-dropdown>
+          <form-validator-message [form]="formOrder" field="idCustomer"></form-validator-message>
+        </div>
+        <div class="col-12 md:col-6 input-group">
+          <label>Responsável</label>
+          <p-dropdown [options]="userOptions" formControlName="idUser"
+            optionLabel="label" [filter]="true" filterBy="label" [showClear]="true"
+            placeholder="Selecione" optionValue="value"
+            emptyFilterMessage="Nenhum resultado encontrado"
+            emptyMessage="Nenhum registro foi encontrado.">
+          </p-dropdown>
+          <form-validator-message [form]="formOrder" field="idUser"></form-validator-message>
+        </div>
+        <div class="col-12 flex justify-content-end">
+          <button pButton type="button" (click)="handleCancel()"
+                  icon="pi pi-times" label="Cancelar" class="p-button-danger p-button-sm"
+                  pTooltip="Excluir" tooltipPosition="top" style="margin-right: .5rem;"></button>
+          <button pButton type="button" label="Cancelar" (click)="handleSave()"
+                  [icon]="'pi ' + (idOrder ? 'pi-save' : 'pi-check')"
+                  [label]="idOrder ? 'Salvar' : 'Adicionar'"
+                  class="p-button-warning p-button-sm" [disabled]="!validateForm()"
+                  pTooltip="Excluir" tooltipPosition="top"></button>
+        </div>
+      </div>
+    </form>
+  </p-fieldset>
+</div>

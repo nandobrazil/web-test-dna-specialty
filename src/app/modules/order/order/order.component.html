@@ -1,7 +1,7 @@
 <div class="order-component">
   <app-search-bar
-    [placeholder]="'Pesquise o cliente pelo CNPJ ou nome'"
-    [routerlinkAddButton]="'/customer/new'"
+    [placeholder]="'Pesquise a venda número, cliente ou CNPJ (apenas números)'"
+    [routerlinkAddButton]="'/order/new'"
     (callFilter)="receiveFilter($event)">
   </app-search-bar>
 

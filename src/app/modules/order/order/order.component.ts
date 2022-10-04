@@ -54,7 +54,7 @@ export class OrderComponent implements OnInit {
       search: { filter: this.filter }
     });
     if (success) {
-      this.orders = data;
+      this.orders = data as IOrder[];
       this.pagination = pagination;
     }
   }

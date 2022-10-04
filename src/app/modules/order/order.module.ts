@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 
 import { OrderRoutingModule } from './order-routing.module';
 import { OrderComponent } from './order/order.component';
@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { CustomerRoutingModule } from '../customer/customer-routing.module';
 import { CoreModule } from 'src/app/core/core.module';
+import { FormatDocument } from 'src/app/shared/pipes/format-document.pipe';
 
 
 @NgModule({
@@ -22,6 +23,10 @@ import { CoreModule } from 'src/app/core/core.module';
     FormsModule,
     CoreModule,
     SharedModule,
+  ],
+  providers: [
+    CurrencyPipe,
+    FormatDocument
   ]
 })
 export class OrderModule { }

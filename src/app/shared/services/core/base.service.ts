@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Inject } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import * as _ from 'lodash';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService, SelectItem } from 'primeng/api';
 import { IHttpResult } from '../../interfaces/core/IHttpResult';
 import { environment } from 'src/environments/environment';
 import { PrepareHttpQuery } from '../../utils/query.utils';
 import { IQueryOptions } from '../../interfaces/core/IQueryOptions';
 import { IResultPaginated } from '../../interfaces/core/IResultPaginated';
+import { ISelectItem } from '../../interfaces/core/ISelectItem';
 
 
 export abstract class BaseService<T> {
@@ -67,6 +68,14 @@ export abstract class BaseService<T> {
   public async Get(): Promise<IHttpResult<T>> {
       const result = await this.http.get(`${this.urlBase}`).toPromise();
       return result as IHttpResult<T>;
+  }
+
+  public async GetAllOptions(): Promise<IHttpResult<ISelectItem[]>> {
+    const result = await lastValueFrom(this.http.get<IHttpResult<ISelectItem[]>>(`${this.urlBase}/options`));
+    return {
+      success: result.success,
+      data: _.get(result, 'data.data') || result.data,
+  };
   }
 
   public post(model: T, url?: string): Promise<IHttpResult<T>> {

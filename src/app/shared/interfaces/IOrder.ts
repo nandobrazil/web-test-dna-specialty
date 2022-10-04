@@ -10,3 +10,11 @@ export interface IOrder {
   user: IUser;
   customer: ICustomer;
 }
+
+export interface IOrderRequest {
+  id: number;
+  idProduct: number;
+  idUser: number;
+  idCustomer: number;
+  amount: number;
+}
