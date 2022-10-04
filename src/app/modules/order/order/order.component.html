@@ -1,6 +1,6 @@
 <div class="order-component">
   <app-search-bar
-    [placeholder]="'Pesquise a venda número, cliente ou CNPJ (apenas números)'"
+    [placeholder]="'Pesquise a venda pelo cliente, responsável ou CNPJ/CPF (apenas números)'"
     [routerlinkAddButton]="'/order/new'"
     (callFilter)="receiveFilter($event)">
   </app-search-bar>
@@ -18,15 +18,9 @@
             <th pSortableColumn="product.name" class="th-cnpj">
               Produto <p-sortIcon field="product.name"></p-sortIcon>
             </th>
-            <th pSortableColumn="quantity">
-              Valor Total <p-sortIcon field="quantity"></p-sortIcon>
-            </th>
-            <th pSortableColumn="customer.name">
-              Cliente <p-sortIcon field="user.name"></p-sortIcon>
-            </th>
-            <th pSortableColumn="user.name">
-              Responsável <p-sortIcon field="user.name"></p-sortIcon>
-            </th>
+            <th>Valor Total</th>
+            <th>Cliente</th>
+            <th>Responsável</th>
             <th class="th-action">Ações</th>
         </tr>
     </ng-template>
