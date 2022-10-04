@@ -1,1 +1,45 @@
-<p>user-manage works!</p>
+<div class="user-manage-component">
+  <app-back-navigator [routerUrl]="'/user'"></app-back-navigator>
+  <p-fieldset legend="Gerenciar Usuário">
+    <form [formGroup]="formUser">
+      <div class="grid">
+        <div class="col-12 md:col-8 input-group">
+          <label>Nome</label>
+          <input type="text" pInputText formControlName="name">
+          <form-validator-message [form]="formUser" field="name"></form-validator-message>
+        </div>
+        <div class="col-12 md:col-4 input-group">
+          <label>CPF</label>
+          <p-inputMask formControlName="cpf" mask="999.999.999-99" slotChar=" "
+            [unmask]="true" characterPattern="[0-9]"></p-inputMask>
+          <form-validator-message [form]="formUser" field="cpf"></form-validator-message>
+        </div>
+        <div class="col-12 md:col-4 input-group">
+          <label>Usuário</label>
+          <input type="text" pInputText formControlName="login">
+          <form-validator-message [form]="formUser" field="login"></form-validator-message>
+        </div>
+        <div class="col-12 md:col-4 input-group">
+          <label>Senha</label>
+          <p-password formControlName="password" [feedback]="false"></p-password>
+          <form-validator-message [form]="formUser" field="password"></form-validator-message>
+        </div>
+        <div class="col-12 md:col-4 input-group">
+          <label>Confirmar Senha</label>
+          <p-password formControlName="confirmpassword" [feedback]="false"></p-password>
+          <form-validator-message [form]="formUser" field="confirmpassword"></form-validator-message>
+        </div>
+        <div class="col-12 flex justify-content-end">
+          <button pButton type="button" (click)="handleCancel()"
+                  icon="pi pi-times" label="Cancelar" class="p-button-danger p-button-sm"
+                  pTooltip="Excluir" tooltipPosition="top" style="margin-right: .5rem;"></button>
+          <button pButton type="button" label="Cancelar" (click)="handleSave()"
+                  [icon]="'pi ' + (idUser ? 'pi-save' : 'pi-check')"
+                  [label]="idUser ? 'Salvar' : 'Adicionar'"
+                  class="p-button-warning p-button-sm" [disabled]="!validateForm()"
+                  pTooltip="Excluir" tooltipPosition="top"></button>
+        </div>
+      </div>
+    </form>
+  </p-fieldset>
+</div>

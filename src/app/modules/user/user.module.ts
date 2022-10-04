@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user/user.component';
 import { UserManageComponent } from './user-manage/user-manage.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -17,6 +17,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     UserRoutingModule,
+    ReactiveFormsModule,
     CoreModule,
     FormsModule,
     SharedModule,

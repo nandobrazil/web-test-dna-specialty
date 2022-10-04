@@ -13,9 +13,10 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import localePt from '@angular/common/locales/pt';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+import { PasswordModule } from 'primeng/password';
+import localePt from '@angular/common/locales/pt';
 
 registerLocaleData(localePt);
 
@@ -36,7 +37,8 @@ registerLocaleData(localePt);
     InputMaskModule,
     ProgressSpinnerModule,
     ReactiveFormsModule,
-    DropdownModule
+    DropdownModule,
+    PasswordModule
   ],
   exports: [
     TableModule,
@@ -53,7 +55,8 @@ registerLocaleData(localePt);
     InputMaskModule,
     ProgressSpinnerModule,
     ReactiveFormsModule,
-    DropdownModule
+    DropdownModule,
+    PasswordModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' }

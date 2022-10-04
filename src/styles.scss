@@ -241,11 +241,14 @@ ul {
     margin-top: .5rem;
     width: 100%;
   }
-  .p-inputnumber {
+  .p-inputnumber, .p-password{
     width: 100%;
   }
   .p-inputnumber-buttons-stacked .p-inputnumber-button-group {
     height: 3rem;
     margin-top: .5rem;
+  }
+  .p-password-mask i {
+    background: red;
   }
 }
